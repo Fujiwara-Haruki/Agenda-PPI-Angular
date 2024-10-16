@@ -10,7 +10,7 @@ export enum Tipo {
     private nome: string;
     private telefone: string;
     private email?: string;
-    private aniversario?: Date;
+    private aniversario?: string;
     private tipo?: Tipo;
   
     constructor(
@@ -23,7 +23,7 @@ export enum Tipo {
       this.nome = nome;
       this.telefone = telefone;
       this.email = email;
-      this.aniversario = data ? new Date(data) : undefined;
+      this.aniversario = data;
       this.tipo = tipo;
     }
   
@@ -40,7 +40,7 @@ export enum Tipo {
     }
   
     setAniversario(data: string): void {
-      this.aniversario = new Date(data);
+      this.aniversario = data;
     }
   
     setTipo(tipo?: Tipo): void {
@@ -59,7 +59,7 @@ export enum Tipo {
       return this.email;
     }
   
-    getAniversario(): Date | undefined {
+    getAniversario(): String | undefined {
       return this.aniversario;
     }
   

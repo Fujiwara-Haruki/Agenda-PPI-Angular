@@ -17,13 +17,13 @@ export class AdicionaContatoComponent {
     this.tipos = Object.values(Tipo)
   }
 
-  adicionarContato(nome: string, tipo: string) {
-    let pessoa = new Contato(nome, '', '', '' , this.getTipo(tipo));
+  adicionarContato(nome: string, telefone: string, email?: string, data?: string ,tipo?: string) {
+    let pessoa = new Contato(nome, telefone, email, data , this.getTipo(tipo));
 
     this.agenda.adicionarContato(pessoa);
   }
 
-  getTipo(str: string): Tipo {
+  getTipo(str: string): Tipo { 
     let tp: Tipo = Tipo.AMIGO
 
     if (str === Tipo.AMIGO) { 
