@@ -1,59 +1,64 @@
 <section>
     <form class="forms">
-        <div>
-            <label for="nome">Nome</label>
+
+        <h1>Adicionar Novo Contato:</h1>
+
+            <label for="nome">Nome:</label>
             <input type="text" name="nome" 
                 id="nome" 
                 #nome>
-        </div>
 
-        <div>
-            <label for="telefone">Telefone</label>
+
+            <label for="telefone">Telefone:</label>
             <input type="tel" name="telefone" 
                 id="telefone" 
                 #telefone>
-        </div>
+ 
 
-        <div>
-            <label for="email">Email</label>
+      
+            <label for="email">Email:</label>
             <input type="email" name="email" 
                 id="email" 
                 #email>
-        </div>
+    
 
-        <div>
-            <label for="data">Aviversário</label>
+   
+            <label for="data">Aviversário:</label>
             <input type="text" name="data" 
                 id="data" 
                 #data>
-        </div>
 
-        <div>
-            <label for="tipo">Tipo</label>
+
+        
+            <label for="tipo">Tipo:</label>
             <select name="tipo" id="tipo" #tipo>
                 <option *ngFor="let tp of tipos" 
                         [value]="tp">{{tp}}</option>
             </select>
-        </div>
+      
+     
+            <input type="button" value="Cadastrar" class="button"
+            (click)="adicionarContato(nome.value, telefone.value, email.value, data.value ,tipo.value)">
 
-    <input type="button" value="Cadastrar" 
-        (click)="adicionarContato(nome.value, telefone.value, email.value, data.value ,tipo.value)">
+            <h1>Contatos:</h1>
+            <table class="tabela">
+                <tr>
+                    <th>Nome:</th>
+                    <th>Telefone:</th>
+                    <th>Email:</th>
+                    <th>Aniversário:</th>
+                    <th>Tipo:</th>
+            
+                </tr>
+                <tr *ngFor="let cc of agenda.obterContatos()">
+                    <td>{{cc.getNome()}}</td>
+                    <td>{{cc.getTelefone()}}</td>
+                    <td>{{cc.getEmail()}}</td>
+                    <td>{{cc.getAniversario()}}</td>
+                    <td>{{cc.getTipo()}}</td>
+                </tr>
+            </table>
     </form>
+
 </section>
 
-<table *ngIf="agenda.obterContatos().length > 0" class="tabela">
-    <tr>
-        <th>Nome</th>
-        <th>Telefone</th>
-        <th>Email</th>
-        <th>Aniverário</th>
-        <th>Tipo</th>
-
-    </tr>
-    <tr *ngFor="let cc of agenda.obterContatos()">
-        <td>{{cc.getNome()}}</td>
-        <td>{{cc.getTelefone()}}</td>
-        <td>{{cc.getEmail()}}</td>
-        <td>{{cc.getAniversario()}}</td>
-        <td>{{cc.getTipo()}}</td>
-    </tr>

@@ -10,7 +10,7 @@ private contatos: Contato[];
 
   adicionarContato(contato: Contato): boolean {
     if (this.contatos.some(c => c.getTelefone() === contato.getTelefone())) { // .some retorna true ou false
-      console.log("Contato com o mesmo telefone já existe.");
+      alert("Contato com mesmo número já adicionado")
       return false;
     }
     this.contatos.push(contato);

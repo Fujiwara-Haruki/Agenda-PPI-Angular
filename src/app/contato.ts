@@ -1,9 +1,9 @@
 export enum Tipo {
     AMIGO = "Amigos",
     FAMILIA = "Familiares",
-    ESCOLA = "Colegas da escola",
-    IGREJA = "Membros da igreja",
-    TRABALHO = "Colegas de trabalho",
+    ESCOLA = "Escola",
+    IGREJA = "Igreja",
+    TRABALHO = "Trabalho",
   }
   
   export class Contato {
